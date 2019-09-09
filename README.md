@@ -1,4 +1,4 @@
-# Local Storage Handler
+# Local Data Storage
 
 A simple **wrapper** over browsers native **localStorage** which saves "smart" items, can handle expiration and can get rid of expired items.
 
@@ -15,7 +15,7 @@ import LocalDataStorage from 'local-data-storage';
 // or
 import { LocalDataStorage, LocalDataStorageItem } from 'local-data-storage';
 
-// store singleton:
+// storage singleton:
 const storage = new LocalDataStorage();
 
 // save an item
@@ -25,8 +25,8 @@ storage.setItem('🔑', '🐈', expiry);
 
 ---
 
-## About LocalStorageHandler
-`LocalStorageHandler` will be a **singleton**. In its constructor it validates existence/availability of the `localStorage` object on `window`. If localStorage isn't supported the `storage` property will be `null` and regular localStorage methods will return with `TypeError` so its recommended to wrap this methods into *try-catch* blocks. By default `setItem` method cannot overwrites an item if it exists. Every method returns a boolean instead of undefined which shows success or doing nothing.
+## About LocalDataStorage
+`LocalDataStorage` will be a **singleton**. In the constructor it validates existence/availability of the `localStorage` object on `window`. If localStorage isn't supported the `storage` property will be `null` and regular localStorage methods will return with `TypeError` so it's recommended to wrap this methods into *try-catch* blocks. By default `setItem` method cannot overwrites an item if it exists. Every method returns a boolean instead of undefined which shows success or doing nothing.
 
 ### Properites
 `storage` - The browsers native *localStorage* object. Please don't modify it from outside.
@@ -49,12 +49,12 @@ storage.setItem('🔑', '🐈', expiry);
 
 ---
 
-## About LocalStorageItem
-`LocalStorageItem` is a custom object stored stringified in localStorage. Its `value` will be the parsed *array* or *object* or just a string. `LocalStorageHandler`s `getItem` method gives this object back, and `setItem` method creates it before saving stuff into localStorage.
+## About LocalDataStorageItem
+`LocalDataStorageItem` is a custom object stored stringified in localStorage. It's `value` will be the parsed *array* or *object* or just a string. `LocalDataStorage`s `getItem` method gives this object back, and `setItem` method creates it before saving stuff into localStorage.
 
 ### Properties
 `value` - The parsed value of stored data. It can be *array*, *object* or a simple *string* as well.
 
-`createdDate` - The timestamp of creation. Its generated automatically in *LocalStorageHandler*s *setItem* method. Don't modify it.
+`createdDate` - The timestamp of creation. It's generated automatically in *LocalDataStorage*s *setItem* method. Don't modify it.
 
-`expiryDate` - The timestamp of expiration, it can be set from *LocalStorageHandler*s *setItem* method or later. When an item expires it will be removed by *LocalStorageHandler*s *cleanExpiredItems* method which is called in *constructor* too.
+`expiryDate` - The timestamp of expiration, it can be set from *LocalDataStorage*s *setItem* method or later. When an item expires it will be removed by *LocalDataStorage*s *cleanExpiredItems* method which is called in *constructor* too.
