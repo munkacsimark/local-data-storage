@@ -1,0 +1,30 @@
+{
+  "name": "local-data-storage",
+  "version": "0.1.0",
+  "description": "Just another LocalStorage wrapper.",
+  "main": "dist/LocalDataStorage.min.js",
+  "repository": "gitlab:munkacsimark/local-data-storage",
+  "keywords": [
+    "localstorage",
+    "local-storage"
+  ],
+  "author": "Márk Munkácsi <munkacsimark@gmail.com> (https://codermark.dev/)",
+  "license": "ISC",
+  "bugs": "https://gitlab.com/munkacsimark/local-data-storage/issues",
+  "homepage": "https://gitlab.com/munkacsimark/local-data-storage",
+  "scripts": {
+    "test": "jest --verbose --coverage --collectCoverageFrom=./src/**/*",
+    "build": "webpack",
+    "deploy": "npm run test && npm run build && npm publish"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.6.0",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/preset-env": "^7.6.0",
+    "babel-loader": "^8.0.6",
+    "jest": "^24.9.0",
+    "uglifyjs-webpack-plugin": "^2.2.0",
+    "webpack": "^4.39.3",
+    "webpack-cli": "^3.3.8"
+  }
+}
