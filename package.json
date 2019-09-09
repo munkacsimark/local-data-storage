@@ -1,6 +1,6 @@
 {
   "name": "local-data-storage",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Just another LocalStorage wrapper.",
   "main": "dist/LocalDataStorage.min.js",
   "repository": "gitlab:munkacsimark/local-data-storage",
