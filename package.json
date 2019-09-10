@@ -2,7 +2,8 @@
   "name": "local-data-storage",
   "version": "0.1.1",
   "description": "Just another LocalStorage wrapper.",
-  "main": "dist/LocalDataStorage.min.js",
+  "main": "LocalDataStorage.js",
+  "types": "LocalDataStorage.d.ts",
   "repository": "gitlab:munkacsimark/local-data-storage",
   "keywords": [
     "localstorage",

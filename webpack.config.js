@@ -4,8 +4,8 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 module.exports = {
   entry: './src/index.js',
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'LocalDataStorage.min.js',
+    path: path.resolve(__dirname, './'),
+    filename: 'LocalDataStorage.js',
     libraryTarget: 'commonjs2'
   },
   mode: 'production',
