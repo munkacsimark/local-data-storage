@@ -45,7 +45,7 @@ storage.setItem('🔑', '🐈', expiry);
 
 `itemExists` - Checks existence of an item based on its *key*.
 
-`cleanExpiredItems` - Removes expired items from the storage. It is invoked in the *constructor*, but feel free to use it anywhere.
+`clearExpiredItems` - Removes expired items from the storage. It is invoked in the *constructor*, but feel free to use it anywhere.
 
 ---
 
@@ -57,4 +57,4 @@ storage.setItem('🔑', '🐈', expiry);
 
 `createdDate` - The timestamp of creation. It's generated automatically in *LocalDataStorage*s *setItem* method. Don't modify it.
 
-`expiryDate` - The timestamp of expiration, it can be set from *LocalDataStorage*s *setItem* method or later. When an item expires it will be removed by *LocalDataStorage*s *cleanExpiredItems* method which is called in *constructor* too.
+`expiryDate` - The timestamp of expiration, it can be set from *LocalDataStorage*s *setItem* method or later. When an item expires it will be removed by *LocalDataStorage*s *clearExpiredItems* method which is called in *constructor* too.

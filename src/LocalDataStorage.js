@@ -6,7 +6,7 @@ class LocalDataStorage {
     if (LocalDataStorage.instance) return LocalDataStorage.instance;
     LocalDataStorage.instance = this;
     this.storage = isLocalStorageAvailable() ? window.localStorage : null;
-    if (this.isAvailable) this.cleanExpiredItems();
+    if (this.isAvailable) this.clearExpiredItems();
   }
 
   getItem = key => {
@@ -53,7 +53,7 @@ class LocalDataStorage {
 
   itemExists = key => this.getItem(key) !== null;
 
-  cleanExpiredItems = () => {
+  clearExpiredItems = () => {
     let itemsWasRemoved = false;
     for (let i = 0; i < this.storage.length; i += 1) {
       const key = this.storage.key(i);

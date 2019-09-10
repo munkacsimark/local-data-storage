@@ -182,10 +182,10 @@ describe('method itemExists', () => {
   });
 });
 
-describe('method cleanExpiredItems', () => {
+describe('method clearExpiredItems', () => {
   test('should return false if there was no deletion', () => {
     const localDataStorage = new LocalDataStorage();
-    const returnedBool = localDataStorage.cleanExpiredItems();
+    const returnedBool = localDataStorage.clearExpiredItems();
     expect(returnedBool).toBeFalsy();
   });
 
@@ -194,7 +194,7 @@ describe('method cleanExpiredItems', () => {
     global.localStorage.setItem('🔑', JSON.stringify({
       value: '🐈', expiryDate: 0,
     }));
-    const returnedBool = localDataStorage.cleanExpiredItems();
+    const returnedBool = localDataStorage.clearExpiredItems();
     expect(returnedBool).toBeTruthy();
   });
 

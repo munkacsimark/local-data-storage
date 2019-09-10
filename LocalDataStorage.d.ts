@@ -16,7 +16,7 @@ export declare class LocalDataStorage {
   clear(): boolean;
   readonly isAvailable: boolean;
   itemExists(key: string): boolean;
-  cleanExpiredItems(): boolean;
+  clearExpiredItems(): boolean;
 }
 
 export default LocalDataStorage;
