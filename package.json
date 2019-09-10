@@ -1,6 +1,6 @@
 {
   "name": "local-data-storage",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Just another LocalStorage wrapper.",
   "main": "LocalDataStorage.js",
   "types": "LocalDataStorage.d.ts",
