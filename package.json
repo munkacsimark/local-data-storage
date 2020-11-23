@@ -1,6 +1,6 @@
 {
   "name": "local-data-storage",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Just another LocalStorage wrapper.",
   "main": "LocalDataStorage.js",
   "types": "LocalDataStorage.d.ts",
@@ -24,7 +24,6 @@
     "@babel/preset-env": "^7.6.0",
     "babel-loader": "^8.0.6",
     "jest": "^26.6.3",
-    "uglifyjs-webpack-plugin": "^2.2.0",
     "webpack": "^5.6.0",
     "webpack-cli": "^4.2.0"
   }
