@@ -1,18 +1,18 @@
 {
   "name": "local-data-storage",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Just another LocalStorage wrapper.",
   "main": "LocalDataStorage.js",
   "types": "LocalDataStorage.d.ts",
-  "repository": "gitlab:munkacsimark/local-data-storage",
+  "repository": "github:munkacsimark/local-data-storage",
   "keywords": [
     "localstorage",
     "local-storage"
   ],
   "author": "Márk Munkácsi <munkacsimark@gmail.com> (https://codermark.dev/)",
   "license": "ISC",
-  "bugs": "https://gitlab.com/munkacsimark/local-data-storage/issues",
-  "homepage": "https://gitlab.com/munkacsimark/local-data-storage",
+  "bugs": "https://github.com/munkacsimark/local-data-storage/issues",
+  "homepage": "https://github.com/munkacsimark/local-data-storage",
   "scripts": {
     "test": "jest --verbose --coverage --collectCoverageFrom=./src/**/*",
     "build": "webpack",
