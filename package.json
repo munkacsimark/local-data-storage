@@ -1,30 +1,28 @@
 {
-  "name": "local-data-storage",
-  "version": "0.2.4",
-  "description": "Just another LocalStorage wrapper.",
-  "main": "LocalDataStorage.js",
-  "types": "LocalDataStorage.d.ts",
-  "repository": "github:munkacsimark/local-data-storage",
-  "keywords": [
-    "localstorage",
-    "local-storage"
-  ],
-  "author": "Márk Munkácsi <markmunkacsi@protonmail.com> (https://codermark.dev/)",
-  "license": "ISC",
-  "bugs": "https://github.com/munkacsimark/local-data-storage/issues",
-  "homepage": "https://github.com/munkacsimark/local-data-storage",
-  "scripts": {
-    "test": "jest --verbose --coverage --collectCoverageFrom=./src/**/*",
-    "build": "webpack",
-    "deploy": "npm run test && npm run build && npm publish"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.15.0",
-    "@babel/plugin-proposal-class-properties": "^7.14.5",
-    "@babel/preset-env": "^7.15.0",
-    "babel-loader": "^8.2.2",
-    "jest": "^27.0.6",
-    "webpack": "^5.48.0",
-    "webpack-cli": "^4.7.2"
-  }
+	"name": "local-data-storage",
+	"version": "0.3.0",
+	"description": "Just another LocalStorage wrapper.",
+	"type": "module",
+	"main": "./dist/LocalDataStorage.js",
+	"types": "./dist/LocalDataStorage.d.ts",
+	"repository": "github:munkacsimark/local-data-storage",
+	"keywords": [
+		"localstorage",
+		"local-storage"
+	],
+	"author": "Márk Munkácsi <markmunkacsi@protonmail.com> (https://codermark.dev/)",
+	"license": "ISC",
+	"bugs": "https://github.com/munkacsimark/local-data-storage/issues",
+	"homepage": "https://github.com/munkacsimark/local-data-storage",
+	"scripts": {
+		"test": "jest --verbose",
+		"build": "tsc",
+		"deploy": "npm run test && npm run build && npm publish"
+	},
+	"devDependencies": {
+		"@types/jest": "^27.0.1",
+		"jest": "^27.0.6",
+		"ts-jest": "^27.0.5",
+		"typescript": "^4.3.5"
+	}
 }

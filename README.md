@@ -1,6 +1,6 @@
 # Local Data Storage
 
-A simple **wrapper** over browsers native **localStorage** which saves "smart" items, can handle expiration and can get rid of expired items.
+It's a simple **wrapper** over browsers native **localStorage**. It uses "smart" items and can work with existing localStorage entries. It always returns success of operation as boolean.
 
 ## Installation
 
@@ -10,51 +10,64 @@ $ npm install local-data-storage
 
 ## Usage
 
+| Name                  | Parameters                                                         | Description                           | Return value           |
+| --------------------- | ------------------------------------------------------------------ | ------------------------------------- | ---------------------- |
+| `isAvailable()`       |                                                                    | It tests if localStorage is available | boolean                |
+| `itemExists()`        | key: string                                                        | It check existence of an item         | boolean                |
+| `clearExpiredItems()` |                                                                    | Clears expired items                  | boolean                |
+| `getItem()`           | key: string                                                        | Return an item by key                 | \*LocalDataStorageItem |
+| `setItem()`           | key: string, obj: \*LocalDataStorageItem, forceOverwrite?: boolean | Saves an item with given key          | boolean                |
+| `removeItem()`        | key: string                                                        | Removes an item by key                | boolean                |
+| `clear()`             |                                                                    | Clears the whole storage              | boolean                |
+
+### Examples:
+
 ```javascript
-import LocalDataStorage from 'local-data-storage';
-// or
-import { LocalDataStorage, LocalDataStorageItem } from 'local-data-storage';
+import {
+	isAvailable,
+	itemExists,
+	clearExpiredItems,
+	getItem,
+	setItem,
+	removeItem,
+	clear,
+} from "local-data-storage";
 
-// storage singleton:
-const storage = new LocalDataStorage();
+if (isAvailable()) {
+	/* do something */
+}
 
-// save an item
-const expiry = Date.now() + 86400;
-storage.setItem('🔑', '🐈', expiry);
+if (itemExists("cat")) {
+	/* do something */
+}
+
+clearExpiredItems();
+
+const myItem = getItem("cat");
+
+setItem("cat", { value: "meow" });
+setItem("willExpireCat", { value: "meow", expiryDate: Date.now() + 86_400 });
+setItem("cat", { value: "OVERWRITTEN" }, true);
+
+removeItem("cat");
+
+clear();
 ```
 
----
+## \*LocalDataStorageItem
 
-## About LocalDataStorage
-`LocalDataStorage` will be a **singleton**. In the constructor it validates existence/availability of the `localStorage` object on `window`. If localStorage isn't supported the `storage` property will be `null` and regular localStorage methods will return with `TypeError` so it's recommended to wrap this methods into *try-catch* blocks. By default `setItem` method cannot overwrites an item if it exists. Every method returns a boolean instead of undefined which shows success or doing nothing.
+| Property    | Type   | Description                                                                                                    |
+| ----------- | ------ | -------------------------------------------------------------------------------------------------------------- |
+| value       | string | This will always exist, will contain unparseable items from storage as well.                                   |
+| createdDate | number | This is a timestamp of creation. It will be set automatically at saving.                                       |
+| expiryDate  | number | This is an optional property. It's a timestamp of expiry, will be deleted by `clearExpiredItems()` if expired. |
 
-### Properites
-`storage` - The browsers native *localStorage* object. Please don't modify it from outside.
+### Example:
 
-### Getters
-`isAvailable` - Returns availability of native localStorage feature.
-
-### Methods
-`getItem` - Returns a custom *LocalStorageItem* or null.
-
-`setItem` - It checks existence of the key, and only overwites it when the *forceOverwrite* parameter is set to *true*. You can pass the *expiry* parameter as well, it will be removed when it expires.
-
-`removeItem` - Removes an item from storage.
-
-`clear` - Wipes everything out of storage.
-
-`itemExists` - Checks existence of an item based on its *key*.
-
-`clearExpiredItems` - Removes expired items from the storage. It is invoked in the *constructor*, but feel free to use it anywhere.
-
----
-
-## About LocalDataStorageItem
-`LocalDataStorageItem` is a custom object stored stringified in localStorage. It's `value` will be the parsed *array* or *object* or just a string. `LocalDataStorage`s `getItem` method gives this object back, and `setItem` method creates it before saving stuff into localStorage.
-
-### Properties
-`value` - The parsed value of stored data. It can be *array*, *object* or a simple *string* as well.
-
-`createdDate` - The timestamp of creation. It's generated automatically in *LocalDataStorage*s *setItem* method. Don't modify it.
-
-`expiryDate` - The timestamp of expiration, it can be set from *LocalDataStorage*s *setItem* method or later. When an item expires it will be removed by *LocalDataStorage*s *clearExpiredItems* method which is called in *constructor* too.
+```javascript
+{
+	value: 'cat',
+	createdDate: 86400,
+	expiryDate: 86401
+}
+```
