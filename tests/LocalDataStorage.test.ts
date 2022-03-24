@@ -3,6 +3,7 @@
  */
 
 import {
+	isAvailable,
 	clear,
 	clearExpiredItems,
 	getItem,
@@ -11,9 +12,15 @@ import {
 	setItem,
 } from "../src/LocalDataStorage";
 import LocalDataStorageItem from "../src/LocalDataStorageItem";
+import {
+	noLocalStorage,
+	erroredLocalStorage,
+	erroredFirefoxLocalStorage,
+	fullLocalStorage,
+} from "./localStorage.mock";
 
 describe("LocalDataStorage", () => {
-	beforeEach(() => window.localStorage.clear());
+	beforeEach(() => window.localStorage?.clear());
 
 	describe("itemExists()", () => {
 		test("should return true if so", () => {
@@ -262,6 +269,39 @@ describe("LocalDataStorage", () => {
 				})
 			);
 			expect(clear()).toBeTruthy();
+		});
+	});
+
+	// this should be the last, because localStorage is being overwritten here
+	describe("isLocalStorageAvailable", () => {
+		const setLocalStorage = (mockLocalStorage: Storage | undefined) =>
+			Object.defineProperty(window, "localStorage", {
+				value: mockLocalStorage,
+				writable: true,
+			});
+
+		it("should return false if localStorage isn't exists", () => {
+			setLocalStorage(noLocalStorage);
+			expect(isAvailable()).toBeFalsy();
+		});
+
+		it("should return false when browser (except Firefox) doesn't support localStorage or Safari lies about it in private mode (<iOS11)", () => {
+			setLocalStorage(erroredLocalStorage);
+			expect(isAvailable()).toBeFalsy();
+		});
+
+		it("should return false if Firefox doesn't support localStorage", () => {
+			setLocalStorage(erroredFirefoxLocalStorage);
+			expect(isAvailable()).toBeFalsy();
+		});
+
+		it("should return true if the localStorage is full but it's available", () => {
+			setLocalStorage(fullLocalStorage);
+			expect(isAvailable()).toBeTruthy();
+		});
+
+		it("should return true if the localStorage is fully working", () => {
+			expect(isAvailable()).toBeTruthy();
 		});
 	});
 });
