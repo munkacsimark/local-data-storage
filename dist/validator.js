@@ -1,6 +1,3 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.isLocalStorageAvailable = void 0;
 const isLocalStorageAvailable = () => {
     const storage = window.localStorage;
     try {
@@ -19,5 +16,5 @@ const isLocalStorageAvailable = () => {
             storage.length !== 0);
     }
 };
-exports.isLocalStorageAvailable = isLocalStorageAvailable;
+export { isLocalStorageAvailable };
 //# sourceMappingURL=validator.js.map

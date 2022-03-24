@@ -1,11 +1,6 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.clear = exports.removeItem = exports.setItem = exports.getItem = exports.clearExpiredItems = exports.itemExists = exports.isAvailable = void 0;
-const validator_1 = require("./validator");
-const isAvailable = () => validator_1.isLocalStorageAvailable();
-exports.isAvailable = isAvailable;
+import { isLocalStorageAvailable } from "./validator";
+const isAvailable = () => isLocalStorageAvailable();
 const itemExists = (key) => getItem(key) !== null;
-exports.itemExists = itemExists;
 const clearExpiredItems = () => {
     try {
         const storage = window.localStorage;
@@ -25,7 +20,6 @@ const clearExpiredItems = () => {
         throw e;
     }
 };
-exports.clearExpiredItems = clearExpiredItems;
 const getItem = (key) => {
     try {
         const rawItem = window.localStorage.getItem(key);
@@ -45,19 +39,21 @@ const getItem = (key) => {
         throw e;
     }
 };
-exports.getItem = getItem;
 const setItem = (key, { value, expiryDate }, forceOverwrite = false) => {
     try {
         if (!forceOverwrite && itemExists(key))
             return false;
-        window.localStorage.setItem(key, JSON.stringify(Object.assign({ value, createdDate: Date.now() }, (expiryDate ? { expiryDate } : {}))));
+        window.localStorage.setItem(key, JSON.stringify({
+            value,
+            createdDate: Date.now(),
+            ...(expiryDate ? { expiryDate } : {}),
+        }));
         return true;
     }
     catch (e) {
         throw e;
     }
 };
-exports.setItem = setItem;
 const removeItem = (key) => {
     try {
         if (!itemExists(key))
@@ -69,7 +65,6 @@ const removeItem = (key) => {
         throw e;
     }
 };
-exports.removeItem = removeItem;
 const clear = () => {
     try {
         if (window.localStorage.length === 0)
@@ -81,5 +76,5 @@ const clear = () => {
         throw e;
     }
 };
-exports.clear = clear;
+export { isAvailable, itemExists, clearExpiredItems, getItem, setItem, removeItem, clear, };
 //# sourceMappingURL=LocalDataStorage.js.map

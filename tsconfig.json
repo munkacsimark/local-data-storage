@@ -1,12 +1,16 @@
 {
 	"compilerOptions": {
-		"target": "es2017",
-		"module": "commonjs",
+		"target": "ES2019",
+		"lib": ["ES2019", "DOM"],
+		"allowSyntheticDefaultImports": true,
+		"module": "ES2020",
+		"moduleResolution": "node",
 		"strict": true,
 		"declaration": true,
 		"outDir": "./dist",
 		"esModuleInterop": true,
-		"sourceMap": true
+		"sourceMap": true,
+		"types": ["jest", "node"]
 	},
 	"exclude": ["tests", "dist", "node_modules"]
 }
