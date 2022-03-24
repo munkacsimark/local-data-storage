@@ -1,6 +1,6 @@
 {
   "name": "local-data-storage",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "Just another LocalStorage wrapper.",
   "type": "module",
   "main": "./dist/LocalDataStorage.js",
@@ -16,7 +16,7 @@
   "homepage": "https://github.com/munkacsimark/local-data-storage",
   "scripts": {
     "test": "jest --verbose",
-    "build": "tsc",
+    "build": "rm -rf ./dist && tsc",
     "deploy": "npm run test && npm run build && npm publish"
   },
   "devDependencies": {
