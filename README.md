@@ -24,21 +24,21 @@ $ npm install local-data-storage
 
 ```javascript
 import {
-	isAvailable,
-	itemExists,
-	clearExpiredItems,
-	getItem,
-	setItem,
-	removeItem,
-	clear,
+  isAvailable,
+  itemExists,
+  clearExpiredItems,
+  getItem,
+  setItem,
+  removeItem,
+  clear,
 } from "local-data-storage";
 
 if (isAvailable()) {
-	/* do something */
+  /* do something */
 }
 
 if (itemExists("cat")) {
-	/* do something */
+  /* do something */
 }
 
 clearExpiredItems();

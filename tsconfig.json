@@ -1,15 +1,15 @@
 {
-	"compilerOptions": {
-		"target": "ES2019",
-		"lib": ["ES2019", "DOM"],
-		"module": "ES2022",
-		"moduleResolution": "node",
-		"strict": true,
-		"declaration": true,
-		"outDir": "./dist",
-		"esModuleInterop": true,
-		"sourceMap": true,
-		"types": ["jest", "node"]
-	},
-	"exclude": ["tests", "dist", "node_modules"]
+  "compilerOptions": {
+    "target": "ES2019",
+    "lib": ["ES2019", "DOM"],
+    "module": "ES2022",
+    "moduleResolution": "node",
+    "strict": true,
+    "declaration": true,
+    "outDir": "./dist",
+    "esModuleInterop": true,
+    "sourceMap": true,
+    "types": ["jest", "node"]
+  },
+  "exclude": ["tests", "dist", "node_modules"]
 }
