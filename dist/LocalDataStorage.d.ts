@@ -1,4 +1,4 @@
-import type LocalDataStorageItem from "./LocalDataStorageItem";
+import type LocalDataStorageItem from "./LocalDataStorageItem.js";
 declare const isAvailable: () => boolean;
 declare const itemExists: (key: string) => boolean;
 declare const clearExpiredItems: () => boolean;
