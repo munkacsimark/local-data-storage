@@ -1,28 +1,28 @@
 {
-	"name": "local-data-storage",
-	"version": "0.3.0",
-	"description": "Just another LocalStorage wrapper.",
-	"type": "module",
-	"main": "./dist/LocalDataStorage.js",
-	"types": "./dist/LocalDataStorage.d.ts",
-	"repository": "github:munkacsimark/local-data-storage",
-	"keywords": [
-		"localstorage",
-		"local-storage"
-	],
-	"author": "Márk Munkácsi <markmunkacsi@protonmail.com> (https://codermark.dev/)",
-	"license": "ISC",
-	"bugs": "https://github.com/munkacsimark/local-data-storage/issues",
-	"homepage": "https://github.com/munkacsimark/local-data-storage",
-	"scripts": {
-		"test": "jest --verbose",
-		"build": "tsc",
-		"deploy": "npm run test && npm run build && npm publish"
-	},
-	"devDependencies": {
-		"@types/jest": "^27.4.1",
-		"jest": "^27.5.1",
-		"ts-jest": "^27.1.3",
-		"typescript": "^4.6.2"
-	}
+  "name": "local-data-storage",
+  "version": "0.4.0",
+  "description": "Just another LocalStorage wrapper.",
+  "type": "module",
+  "main": "./dist/LocalDataStorage.js",
+  "types": "./dist/LocalDataStorage.d.ts",
+  "repository": "github:munkacsimark/local-data-storage",
+  "keywords": [
+    "localstorage",
+    "local-storage"
+  ],
+  "author": "Márk Munkácsi <markmunkacsi@protonmail.com> (https://codermark.dev/)",
+  "license": "ISC",
+  "bugs": "https://github.com/munkacsimark/local-data-storage/issues",
+  "homepage": "https://github.com/munkacsimark/local-data-storage",
+  "scripts": {
+    "test": "jest --verbose",
+    "build": "tsc",
+    "deploy": "npm run test && npm run build && npm publish"
+  },
+  "devDependencies": {
+    "@types/jest": "^27.4.1",
+    "jest": "^27.5.1",
+    "ts-jest": "^27.1.3",
+    "typescript": "^4.6.2"
+  }
 }
