@@ -1,4 +1,4 @@
-declare type LocalDataStorageItem = {
+type LocalDataStorageItem = {
     value: any;
     createdDate?: number;
     expiryDate?: number;
